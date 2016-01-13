@@ -1,8 +1,8 @@
-#############################################################
+################################################################################
 #
 # tpm-tools
 #
-##############################################################
+################################################################################
 
 TPM_TOOLS_VERSION = 1.3.8
 TPM_TOOLS_SOURCE = tpm-tools-$(TPM_TOOLS_VERSION).tar.gz
@@ -12,8 +12,9 @@ TPM_TOOLS_LICENSE = Common Public License Version 1.0
 TPM_TOOLS_LICENSE_FILES = LICENSE
 TPM_TOOLS_DEPENDENCIES = trousers openssl \
 	$(if $(BR2_NEEDS_GETTEXT_IF_LOCALE),gettext)
-# lib/Makefile.am is patched
+# configure.in and lib/Makefile.am is patched
 TPM_TOOLS_AUTORECONF = YES
+TPM_TOOLS_GETTEXTIZE = YES
 
 TPM_TOOLS_CONF_OPTS = --disable-pkcs11-support
 
