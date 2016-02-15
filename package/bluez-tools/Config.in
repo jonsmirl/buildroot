@@ -1,0 +1,6 @@
+config BR2_PACKAGE_BLUEZ_TOOLS
+	bool "bluez_tools"
+	help
+	  Tools for managing the Bluez Bluetooth stack.
+
+	  https://code.google.com/archive/p/bluez-tools/

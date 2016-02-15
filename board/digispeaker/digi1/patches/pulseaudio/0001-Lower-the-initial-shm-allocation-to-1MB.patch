@@ -1,0 +1,25 @@
+From 0aa9c920f45cf3a82c7109b62a1ed547930ad467 Mon Sep 17 00:00:00 2001
+From: Jon Smirl <jonsmirl@gmail.com>
+Date: Wed, 13 Jan 2016 15:03:55 -0500
+Subject: [PATCH] Lower the initial shm allocation to 1MB
+
+---
+ src/daemon/daemon.conf.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/daemon/daemon.conf.in b/src/daemon/daemon.conf.in
+index b48afa2..638e551 100644
+--- a/src/daemon/daemon.conf.in
++++ b/src/daemon/daemon.conf.in
+@@ -28,7 +28,7 @@ ifelse(@HAVE_DBUS@, 1, [dnl
+ ; local-server-type = user
+ ])dnl
+ ; enable-shm = yes
+-; shm-size-bytes = 0 # setting this 0 will use the system-default, usually 64 MiB
++shm-size-bytes = 1048576 # setting this 0 will use the system-default, usually 64 MiB
+ ; lock-memory = no
+ ; cpu-limit = no
+ 
+-- 
+2.1.4
+

@@ -1,0 +1,27 @@
+#!/bin/sh
+# Load static kernel modules
+
+case "${1}" in
+    start)
+
+        [ -r /etc/modules.conf ] &&
+            egrep -qv '^($|#)' /etc/modules.conf ||
+            exit 0
+
+        while read module args; do
+
+            case "$module" in
+                ""|"#"*) continue ;;
+            esac
+
+            modprobe ${module} ${args} >/dev/null
+
+        done < /etc/modules.conf
+
+        ;;
+    *)
+        echo "Usage: ${0} {start}"
+        exit 1
+        ;;
+esac
+
