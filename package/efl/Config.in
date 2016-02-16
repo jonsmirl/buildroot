@@ -81,7 +81,7 @@ config BR2_PACKAGE_EFL_LIBSNDFILE
 
 config BR2_PACKAGE_EFL_PULSEAUDIO
 	bool "Enable pulseaudio support (recommended)"
-	depends on BR2_ARCH_HAS_ATOMICS # pulseaudio
+	depends on BR2_TOOLCHAIN_HAS_SYNC_4 # pulseaudio -> json-c
 	select BR2_PACKAGE_PULSEAUDIO
 	default y
 	help
@@ -164,7 +164,7 @@ config BR2_PACKAGE_EFL_GIF
 	select BR2_PACKAGE_GIFLIB
 	help
 	  This enables the loader code that loads gif files using
-	  libungif.
+	  giflib.
 
 config BR2_PACKAGE_EFL_TIFF
 	bool "libevas tiff loader"
